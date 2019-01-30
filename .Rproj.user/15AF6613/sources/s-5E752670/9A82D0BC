@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1548843251100.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1078018982",
+    "id" : "9A82D0BC",
+    "lastKnownWriteTime" : 1548858230,
+    "last_content_update" : -2147483648,
+    "path" : "D:/Dati/vito.tranquillo/gitProject/antibioticoresistenza/codici.r",
+    "project_path" : "codici.r",
+    "properties" : {
+        "cursorPosition" : "52,31",
+        "scrollLine" : "35",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
