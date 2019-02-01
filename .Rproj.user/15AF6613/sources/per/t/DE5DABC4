@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1549010568102.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2793083753",
+    "id" : "DE5DABC4",
+    "lastKnownWriteTime" : 1549022789,
+    "last_content_update" : -2147483648,
+    "path" : "D:/Dati/vito.tranquillo/gitProject/antibioticoresistenza/app/global.R",
+    "project_path" : "app/global.R",
+    "properties" : {
+        "cursorPosition" : "18,17",
+        "scrollLine" : "4",
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

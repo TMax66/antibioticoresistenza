@@ -1,36 +1,62 @@
 #############INTERFACCIA GRAFICA###################################################
 ui<-navbarPage("Antibiotico-resistenze Sez. diagnostica di Bergamo",
+       tabPanel("Profili di resistenza",
+                fluidPage(
+                  sidebarPanel(
+                    selectInput("sp2", "specie",
+                                c(unique(as.character(dati$specie)))),
+                    selectInput("mt2", "materiale",
+                                c(unique(as.character(dati$materiale)))),
+                    selectInput("cp2", "ceppo",
+                                c(unique(as.character(dati$ceppo))))
+                 
+                  ),
+                  mainPanel(
+                    plotOutput('plotprof')
+                  )
 
-               tabPanel("trend temporali ",
-                        fluidPage(
-                          fluidRow(
-                            
-                            column(6,div(style="height:50px"),dygraphOutput('dygraph')),
-                            
-                            column(6,div(style="height:50px"),dygraphOutput('vargraf'))),
-                          
-                          br(),
-                          
-                          
-                          fluidRow( 
-                            
-                            column(6,div(style="height:50px", align="center",sliderInput("mesi", "smoothing value", 0,48,1))),
-                            
-                            column(6,div(style="height:50px",align="center",
-                                         selectInput("set", "settore",
-                                                     c(unique(as.character(dati$settore))))))),
-                          
-                          br(),
-                          br(),
-                          hr()
-                          
-                          
-                          
-                        )
-               ),
-              
-           
-               tabPanel("Prove", "This panel is intentionally left blank")
+                )
+                ),
+       tabPanel("Molecole",
+                fluidPage(
+                  sidebarPanel(
+                    selectInput("mo3", "Molecola",
+                                c(unique(as.character(dati$antibiotico)))),
+                    selectInput("sp3", "Specie",
+                                c(unique(as.character(dati$specie)))),
+                    selectInput("mt3", "materiale",
+                                c(unique(as.character(dati$materiale))))
+                    
+                  ),
+                  mainPanel(
+                    plotOutput('plotceppi')
+                  )
+                  
+                )
+
+                ),
+       
+  tabPanel("Trend",
+           fluidPage(
+             sidebarPanel(
+               selectInput("sp", "specie",
+                           c(unique(as.character(dati$specie)))),
+               selectInput("mt", "materiale",
+                           c(unique(as.character(dati$materiale)))),
+               selectInput("cp", "ceppo",
+                           c(unique(as.character(dati$ceppo)))),
+               selectInput("mo", "molecola",
+                           c(unique(as.character(dati$antibiotico))))
+             ),
+             br(),
+             br(),
+             mainPanel(
+               dygraphOutput('dygraph')
+             )
+           ))
+       
+       
+       
 )
 
 
