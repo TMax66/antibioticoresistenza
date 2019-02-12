@@ -62,8 +62,10 @@ z<-totx %>% full_join(res)%>%
 
   
   
-  z%>% 
-    filter(ceppo=='Escherichia coli', materiale=="ANIMALE VIVO/CARCASSA", specie=="GATTO") %>% 
+ x<- z%>% 
+    filter(ceppo=='Escherichia coli', materiale=="LATTE", specie=="CONIGLIO") 
+  
+   if(x)
     arrange(`%resistenti`) %>% 
     mutate(`%resistenti`= round(`%resistenti`,1)) %>% 
     mutate(antibiotico = factor(antibiotico, unique(antibiotico))) %>% 
