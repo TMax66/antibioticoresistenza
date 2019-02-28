@@ -20,12 +20,19 @@ server<-function(input, output){
   })
   
   output$dygraph <- renderDygraph({
+    
+    if(dim(resistenze()[1])==0) 
+    {shinyalert("Oops!", "Non ci sono dati per gli input inseriti.", type = "error")} 
+    else{
+
+    
     graph<- xts(resistenze()$`%resistenti`, order.by = as.Date(resistenze()$anno))
     dygraph(graph,ylab = "%resistenza") %>% 
       dyAxis("y", label = "% ceppi resistenti",valueRange = c(0, 110)) %>% 
       dySeries("V1", label = "% ceppi resistenti") %>% 
       dyOptions(drawPoints = TRUE, pointSize = 2) 
-  })
+  }
+    })
     
  ####grafico profilo####
     profili<-reactive({
@@ -46,6 +53,10 @@ server<-function(input, output){
     })
     
     output$plotprof<-renderPlot(
+      
+       if(dim(profili()[1])==0) 
+         {shinyalert("Oops!", "Non ci sono dati per gli input inseriti.", type = "error")} 
+      else{
    profili()%>% 
       arrange(`% ceppi resistenti`) %>% 
       mutate(`% ceppi resistenti`= round(`% ceppi resistenti`,1)) %>% 
@@ -63,8 +74,9 @@ server<-function(input, output){
       ))+
       labs(title=input$cp2,caption=Sys.Date()) +  
       coord_flip()
+      }
+      )
     
-    )
 
 
     generi<-reactive({
@@ -83,6 +95,11 @@ server<-function(input, output){
     })
     
     output$plotceppi<-renderPlot(
+      
+      if(dim(generi()[1])==0) 
+      {shinyalert("Oops!", "Non ci sono dati per gli input inseriti.", type = "error")} 
+      else{
+
     generi()%>% 
         arrange(`% ceppi resistenti`) %>% 
         mutate(`% ceppi resistenti`= round(`% ceppi resistenti`,1)) %>% 
@@ -101,6 +118,7 @@ server<-function(input, output){
         ))+
         labs(title=input$mo3,caption=Sys.Date()) +  
         coord_flip()
+      }
       
     )
     

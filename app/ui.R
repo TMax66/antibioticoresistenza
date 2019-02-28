@@ -2,6 +2,7 @@
 ui<-navbarPage("Antibiotico-resistenze Sez. diagnostica di Bergamo-Sondrio-Binago",
        tabPanel("Profili di resistenza",
                 fluidPage(
+                  useShinyalert(),
                   sidebarPanel(
                     selectInput("sp2", "specie",
                                 c(unique(as.character(dati$specie)))),
@@ -12,6 +13,7 @@ ui<-navbarPage("Antibiotico-resistenze Sez. diagnostica di Bergamo-Sondrio-Binag
                  
                   ),
                   mainPanel(
+                    
                     plotOutput('plotprof')
                   )
 

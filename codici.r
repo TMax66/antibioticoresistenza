@@ -63,9 +63,7 @@ z<-totx %>% full_join(res)%>%
   
   
  x<- z%>% 
-    filter(ceppo=='Escherichia coli', materiale=="LATTE", specie=="CONIGLIO") 
-  
-   if(x)
+    filter(ceppo=='Escherichia coli', materiale=="LATTE", specie=="GATTO") %>% 
     arrange(`%resistenti`) %>% 
     mutate(`%resistenti`= round(`%resistenti`,1)) %>% 
     mutate(antibiotico = factor(antibiotico, unique(antibiotico))) %>% 
@@ -115,4 +113,37 @@ z%>%
     ))+
     labs(title="% di ceppi resistenti",caption=Sys.Date()) +  
     coord_flip()
+
+
+
+     
+  
+  totx<-dati %>% 
+    group_by(anno, specie,materiale, ceppo, antibiotico) %>% 
+    summarise("n"=n()) 
+  
+  
+  
+  res<-dati %>% 
+    group_by(anno, specie,materiale,ceppo, antibiotico) %>% 
+    filter(ris=='R') %>% 
+    summarise("r"=n())  
+  z<-totx %>% full_join(res)%>% 
+    replace_na(list(r=0)) %>% 
+    mutate("%resistenti"=(r/n)*100) %>% 
+    filter(specie=="CANE", ceppo=="Escherichia coli", 
+           materiale=="LATTE",antibiotico=="Lincomicina") 
+
+
+
+  
+  
+  
+  graph<- xts(z$`%resistenti`, order.by = as.Date(z$anno))
+  dygraph(graph,ylab = "%resistenza") %>% 
+    dyAxis("y", label = "% ceppi resistenti",valueRange = c(0, 110)) %>% 
+    dySeries("V1", label = "% ceppi resistenti") %>% 
+    dyOptions(drawPoints = TRUE, pointSize = 2) 
+
+
   
