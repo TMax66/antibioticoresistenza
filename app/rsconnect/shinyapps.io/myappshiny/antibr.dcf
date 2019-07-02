@@ -5,8 +5,8 @@ account: myappshiny
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 737930
-bundleId: 1897677
+bundleId: 2194093
 url: https://myappshiny.shinyapps.io/antibr/
-when: 1551093095.876
+when: 1562071678.20034
 asMultiple: FALSE
 asStatic: FALSE

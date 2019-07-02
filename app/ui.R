@@ -1,5 +1,5 @@
 #############INTERFACCIA GRAFICA###################################################
-ui<-navbarPage("Antibiotico-resistenze Sez. diagnostica di Bergamo-Sondrio-Binago",
+ui<-navbarPage("Antibiotico-resistenze -Bergamo",
        tabPanel("Profili di resistenza",
                 fluidPage(
                   useShinyalert(),
