@@ -5,13 +5,12 @@ ui<-navbarPage("Antibiotico-resistenze -Bergamo",
                   useShinyalert(),
                   sidebarPanel(
                     selectInput("sp2", "specie",
-                                c(unique(as.character(dati$specie)))),
+                                c( unique(as.character(dati$specie)))),
                     selectInput("mt2", "materiale",
                                 c(unique(as.character(dati$materiale)))),
                     selectInput("cp2", "ceppo",
-                                c(unique(as.character(dati$ceppo)))),
-                    textInput("codaz", "Codice allevamento")
-                 
+                                c(unique(as.character(dati$ceppo))))#,
+                    
                   ),
                   mainPanel(
                     
@@ -29,7 +28,7 @@ ui<-navbarPage("Antibiotico-resistenze -Bergamo",
                                 c(unique(as.character(dati$specie)))),
                     selectInput("mt3", "materiale",
                                 c(unique(as.character(dati$materiale)))),
-                    textInput("codaz", "Codice allevamento")
+                    
                     
                   ),
                   mainPanel(
@@ -57,7 +56,21 @@ ui<-navbarPage("Antibiotico-resistenze -Bergamo",
              mainPanel(
                dygraphOutput('dygraph')
              )
-           ))
+           )), 
+  
+  tabPanel("AR in allevamento",
+           sidebarPanel(
+             selectInput("codaz", "Codice allevamento",
+                                     c(unique(as.character(dati$codall))))
+           ),
+           
+           mainPanel(
+             tableOutput("taz")
+             
+           )
+           
+           
+           )
        
        
        

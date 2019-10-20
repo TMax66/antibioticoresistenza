@@ -126,4 +126,24 @@ server<-function(input, output){
       
     )
     
+    
+    
+az<-reactive({dati %>% 
+      filter(codall==input$codaz) %>%
+      select(anno,specie, ceppo, materiale, antibiotico, ris) %>% 
+      mutate(ris = 
+               ifelse(ris=="R",     
+                      cell_spec(ris, "html", color="red",bold=T),
+                      cell_spec(ris, "html", color="green", bold=T))) %>% 
+      
+      arrange(anno) %>% 
+      #mutate(dtprel=format(dtprel, "%d-%m-%Y")) %>% 
+      pivot_wider(names_from=antibiotico,values_from=ris ) })
+    
+  
+output$taz<-function(){   
+  kable(az(),escape=F) %>% 
+      kable_styling("striped",font_size = 10) %>% 
+    scroll_box(width = "1000px", height = "100%")
+}
   }
