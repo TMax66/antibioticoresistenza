@@ -33,20 +33,29 @@ options(knitr.kable.NA = '')
 
 
 
-z<-dati %>% 
-    filter(codall=="044BG044") %>%
-    select(anno,specie, ceppo, materiale, antibiotico, ris) %>% 
-    mutate(ris = 
-             ifelse(ris=="R",     
-                    cell_spec(ris, "html", color="red",bold=T),
-                    cell_spec(ris, "html", color="green", bold=T))) %>% 
-    
-    arrange(anno) %>% 
-    #mutate(dtprel=format(dtprel, "%d-%m-%Y")) %>% 
-    pivot_wider(names_from=antibiotico,values_from=ris ) 
 
-kable(z,escape=F) %>% 
-  kable_styling("striped",font_size = 10)
+
+
+# z<-dati %>% 
+#     filter(codall=="044BG044") %>%
+#     select(anno,specie, ceppo, materiale, antibiotico, ris) %>% 
+#     # mutate(ris = 
+#     #          ifelse(ris=="R",     
+#     #                 cell_spec(ris, "html", color="red",bold=T),
+#     #                 cell_spec(ris, "html", color="green", bold=T))) %>% 
+#     # 
+#     # arrange(anno) %>% 
+#     #mutate(dtprel=format(dtprel, "%d-%m-%Y")) %>% 
+#     pivot_wider(names_from=antibiotico,values_from=ris ) 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# kable(z,escape=F) %>% 
+#   kable_styling("striped",font_size = 10)
 
 
 

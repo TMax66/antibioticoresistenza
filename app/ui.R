@@ -13,8 +13,9 @@ ui<-navbarPage("Antibiotico-resistenze -Bergamo",
                  
                   ),
                   mainPanel(
-                    
-                    plotOutput('plotprof')
+                  
+                    plotOutput('plotprof') %>% 
+                      withSpinner(color="blue", type=8)
                   )
 
                 )
@@ -31,7 +32,8 @@ ui<-navbarPage("Antibiotico-resistenze -Bergamo",
                     
                   ),
                   mainPanel(
-                    plotOutput('plotceppi')
+                    plotOutput('plotceppi') %>% 
+                      withSpinner(color="blue", type=8)
                   )
                   
                 )
@@ -53,7 +55,8 @@ ui<-navbarPage("Antibiotico-resistenze -Bergamo",
              br(),
              br(),
              mainPanel(
-               dygraphOutput('dygraph')
+               dygraphOutput('dygraph') %>% 
+                 withSpinner(color="blue", type=8)
              )
            ))
        

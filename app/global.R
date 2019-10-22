@@ -19,6 +19,7 @@ library(datasets)
 library(tidyverse)
 library(rpivotTable)
 library(shinyalert)
+library(shinycssloaders)
 ####################################################################
 dati<-read.csv("dati.csv", header=T, sep=";")
 dati<-as_tibble(dati)
