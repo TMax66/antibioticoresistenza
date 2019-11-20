@@ -59,10 +59,10 @@ ui<-navbarPage("Antibiotico-resistenze -Bergamo",
            )), 
   
   tabPanel("AR in allevamento",
-           sidebarPanel(
+           #sidebarPanel(
              selectInput("codaz", "Codice allevamento",
-                                     c(unique(as.character(dati$codall))))
-           ),
+                                     c(unique(as.character(dati$codall)))),
+          # ),
            
            mainPanel(
              tableOutput("taz")

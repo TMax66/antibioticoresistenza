@@ -22,42 +22,34 @@ library(shinyalert)
 library(knitr)
 library(formattable)
 library(kableExtra)
+
 ####################################################################
 dati<-read.csv("dati.csv", header=T, sep=";")
 dati<-as_tibble(dati)
 dati$datareg<-dmy(dati$datareg)
 dati<-mutate(dati,anno=year(datareg))
 dati$anno<-as.Date((paste(dati$anno,"-01","-01",sep="")))
+dati<-dati %>% 
+  filter(codall!="000IX000" & specie %in% c("BOVINO", "BOVINO - VITELLO"))
+
+dati$specie<-
+  plyr::revalue(dati$specie, c("BOVINO - VITELLO"="BOVINO"))
 
 options(knitr.kable.NA = '')
 
 
+# dati$antibiotico<-
+#   plyr::revalue(dati$antibiotico, 
+#           c("Lincomicina"="Clindamicina", "Pirlimicina"="Clindamicina", 
+#           "Enrofloxacin"="Danofloxacin", "Marbofloxacin"="Danofloxacin",
+#           "Flumequina"="Acido Nalidixico", "Amoxicillina"="Ampicillina", 
+#           "Apramicina"="Gentamicina","Cefalexina"="Cefalotina", "Cefoperazone"="Ceftiofur",
+#           "Cefquinome"="Ceftiofur", "Cloxacillina"="Oxacillina",  "Penetamato Iodidrato" = "Penicillina G",
+#           "Penicillina"="Penicillina G", "Spiramicina"="Tilmicosina", "Streptomicina"="Kanamicina", 
+#           "Sulfadimetossina"="Sulfisoxazolo", "Tilosina"="Tilmicosina", "Tiamfenicolo"="Cloramfenicolo",
+#           "Nafcillina"="Oxacillina", "Rifaximina"="Rifampicina", "Clortetraciclina"="Tetraciclina",
+#           "Ossitetraciclina"="Tetraciclina", "Florfenicolo"="Cloramfenicolo", "Tulatromicina"="Eritromicina",
+#           "Sulfadiazina"="Sulfisoxazolo", "Cefpodoxime"="Ceftiofur"))
 
 
 
-
-# z<-dati %>% 
-#     filter(codall=="044BG044") %>%
-#     select(anno,specie, ceppo, materiale, antibiotico, ris) %>% 
-#     # mutate(ris = 
-#     #          ifelse(ris=="R",     
-#     #                 cell_spec(ris, "html", color="red",bold=T),
-#     #                 cell_spec(ris, "html", color="green", bold=T))) %>% 
-#     # 
-#     # arrange(anno) %>% 
-#     #mutate(dtprel=format(dtprel, "%d-%m-%Y")) %>% 
-#     pivot_wider(names_from=antibiotico,values_from=ris ) 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# kable(z,escape=F) %>% 
-#   kable_styling("striped",font_size = 10)
-
-
-
-
-  
