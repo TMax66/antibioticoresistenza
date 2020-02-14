@@ -39,17 +39,17 @@ options(knitr.kable.NA = '')
 
 
 # dati$antibiotico<-
-#   plyr::revalue(dati$antibiotico, 
-#           c("Lincomicina"="Clindamicina", "Pirlimicina"="Clindamicina", 
+#   plyr::revalue(dati$antibiotico,
+#           c("Lincomicina"="Clindamicina", "Pirlimicina"="Clindamicina",
 #           "Enrofloxacin"="Danofloxacin", "Marbofloxacin"="Danofloxacin",
-#           "Flumequina"="Acido Nalidixico", "Amoxicillina"="Ampicillina", 
+#           "Flumequina"="Acido Nalidixico", "Amoxicillina"="Ampicillina",
 #           "Apramicina"="Gentamicina","Cefalexina"="Cefalotina", "Cefoperazone"="Ceftiofur",
 #           "Cefquinome"="Ceftiofur", "Cloxacillina"="Oxacillina",  "Penetamato Iodidrato" = "Penicillina G",
-#           "Penicillina"="Penicillina G", "Spiramicina"="Tilmicosina", "Streptomicina"="Kanamicina", 
+#           "Penicillina"="Penicillina G", "Spiramicina"="Tilmicosina", "Streptomicina"="Kanamicina",
 #           "Sulfadimetossina"="Sulfisoxazolo", "Tilosina"="Tilmicosina", "Tiamfenicolo"="Cloramfenicolo",
 #           "Nafcillina"="Oxacillina", "Rifaximina"="Rifampicina", "Clortetraciclina"="Tetraciclina",
 #           "Ossitetraciclina"="Tetraciclina", "Florfenicolo"="Cloramfenicolo", "Tulatromicina"="Eritromicina",
 #           "Sulfadiazina"="Sulfisoxazolo", "Cefpodoxime"="Ceftiofur"))
-
+# 
 
 
